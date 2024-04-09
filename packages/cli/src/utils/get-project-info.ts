@@ -101,6 +101,7 @@ export async function getProjectConfig(cwd: string): Promise<Config | null> {
     },
     aliases: {
       utils: `${tsConfigAliasPrefix}/lib/utils`,
+      incerro: `${tsConfigAliasPrefix}/lib/incerro`,
       components: `${tsConfigAliasPrefix}/components`,
     },
   }

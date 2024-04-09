@@ -9,6 +9,6 @@ export default async function handler(
   if (req.method !== "GET") {
     return res.status(405).end()
   }
-
+  console.log("components", components)
   return res.status(200).json(components)
 }

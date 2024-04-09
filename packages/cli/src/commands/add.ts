@@ -94,7 +94,9 @@ export const add = new Command()
       }
 
       const tree = await resolveTree(registryIndex, selectedComponents)
+      console.log("tree", tree)
       const payload = await fetchTree(config.style, tree)
+      console.log("payload", payload)
       const baseColor = await getRegistryBaseColor(config.tailwind.baseColor)
 
       if (!payload.length) {
@@ -117,12 +119,14 @@ export const add = new Command()
 
       const spinner = ora(`Installing components...`).start()
       for (const item of payload) {
+        console.log("item", item)
         spinner.text = `Installing ${item.name}...`
         const targetDir = await getItemTargetPath(
           config,
           item,
           options.path ? path.resolve(cwd, options.path) : undefined
         )
+        console.log("targetDir", targetDir)
 
         if (!targetDir) {
           continue
@@ -171,6 +175,7 @@ export const add = new Command()
             config,
             baseColor,
           })
+          console.log("content", content)
 
           if (!config.tsx) {
             filePath = filePath.replace(/\.tsx$/, ".jsx")

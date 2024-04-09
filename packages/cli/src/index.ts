@@ -4,6 +4,7 @@ import { diff } from "@/src/commands/diff"
 import { init } from "@/src/commands/init"
 import { Command } from "commander"
 
+import { gaurav } from "./commands/gaurav"
 import { getPackageInfo } from "./utils/get-package-info"
 
 process.on("SIGINT", () => process.exit(0))
@@ -21,7 +22,7 @@ async function main() {
       "display the version number"
     )
 
-  program.addCommand(init).addCommand(add).addCommand(diff)
+  program.addCommand(init).addCommand(add).addCommand(diff).addCommand(gaurav)
 
   program.parse()
 }
